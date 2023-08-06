@@ -1,0 +1,21 @@
+/* Reglas para la barra de navegación personalizada */
+.custom-navbar {
+    background-color: #000000; /* Color de fondo morado (#800080) */
+    height: 9vh;
+    width: 100vw;
+    padding: 8px; /* Ajusta el espaciado interno del contenedor */
+    display: flex; /* Utiliza el modelo de diseño flexbox */
+    align-items: center; /* Alinea verticalmente los elementos en el centro */
+  }
+  
+  /* Estilos para el logotipo */
+  .custom-navbar img {
+    max-height: 40px; /* Tamaño máximo del logotipo */
+    margin-right: 10px; /* Espaciado a la derecha del logotipo */
+  }
+  
+  /* Estilos para el título */
+  .custom-navbar span {
+    font-size: 20px; /* Tamaño de fuente del título */
+    color: brown; /* Color del título */
+  }

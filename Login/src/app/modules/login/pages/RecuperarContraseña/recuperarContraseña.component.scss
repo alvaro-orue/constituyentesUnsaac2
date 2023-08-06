@@ -1,0 +1,51 @@
+.card-body{
+    text-align: center;
+    display: inline-flex;
+}
+
+.form-control {
+    font-family: "Courier New", monospace;
+    font-size: 18px; /* Cambia 18px por el tamaño de fuente deseado */
+    font-weight: 700; 
+    color: #008000; /* Cambia #008000 por el código de color que desees */
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+  }
+  .card-title{
+    margin: 10px;
+  }
+  .fondo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 10px;
+    min-width: 100px;
+    background-size: cover;
+    background-position: center;
+    
+  }
+  button {
+    background-color: #641E16; /* Background color of the button */
+    margin: 10px;
+   
+}
+
+.subtitulo {
+    display: flexbox;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-color: #ffffff  ;
+    padding: 30px;
+  }
+  .parte1{
+    display: inline-flex;
+    
+  }
+  .imagen{
+    padding: 30px;
+  }
+  body{
+    background-color:red ;
+  }

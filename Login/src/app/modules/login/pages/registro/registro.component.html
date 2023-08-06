@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registro de Usuario</title>
+    <style>
+        /* Estilos para el encuadre del formulario */
+        .container {
+            width: 600px;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .user-photo {
+            width: 150px;
+            height: 150px;
+            border: 3px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-right: 20px;
+        }
+
+        .user-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .form-fields {
+            flex: 1;
+        }
+
+        /* Estilos para los campos de entrada */
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        select {
+            width: 100%;
+        }
+
+        input[type="file"] {
+            padding: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Estilo para el área de texto */
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="user-photo">
+            <img src="default-avatar.jpg" alt="Foto de Perfil">
+        </div>
+        <div class="form-fields">
+            <h2>Registro de Usuario</h2>
+            <form action="#" method="post">
+                <label for="dni">DNI:</label>
+                <input type="text" id="dni" name="dni" required><br>
+
+                <label for="nombres">Nombres:</label>
+                <input type="text" id="nombres" name="nombres" required><br>
+
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" id="apellidos" name="apellidos" required><br>
+
+                <label for="genero">Género:</label>
+                <select id="genero" name="genero">
+                    <option value="masculino">Masculino</option>
+                    <option value="femenino">Femenino</option>
+                    <option value="otro">Otro</option>
+                </select><br>
+
+                <label for="foto">Fotografía:</label>
+                <input type="file" id="foto" name="foto"><br>
+
+                <label for="direccion">Dirección:</label>
+                <textarea id="direccion" name="direccion" rows="3" required></textarea><br>
+
+                <label for="celular">Celular:</label>
+                <input type="tel" id="celular" name="celular" required><br>
+
+                <label for="correo">Correo:</label>
+                <input type="email" id="correo" name="correo" required><br>
+
+                <label for="contrasena">Contraseña:</label>
+                <input type="password" id="contrasena" name="contrasena" required><br>
+
+                <label for="confirmar_contrasena">Confirmar Contraseña:</label>
+                <input type="password" id="confirmar_contrasena" name="confirmar_contrasena" required><br>
+
+                <label for="estado">Estado:</label>
+                <select id="estado" name="estado">
+                    <option value="activo">Activo</option>
+                    <option value="inactivo">Inactivo</option>
+                </select><br>
+
+                <label for="tipo_usuario">Tipo de Usuario:</label>
+                <select id="tipo_usuario" name="tipo_usuario" onchange="mostrarCamposAdicionales()">
+                    <option value="opcion1">Estudiante</option>
+                    <option value="opcion2">Egresado</option>
+                    <option value="opcion3">Docente</option>
+                    <option value="opcion4">Empleador</option>
+                </select><br>
+
+                <!-- Campos adicionales para el tipo de usuario Opción 1 -->
+                <div id="opcion1_campos" style="display: none;">
+                    <label for="semestre_academico">Semestre Académico:</label>
+                    <select id="semestre_academico" name="semestre_academico">
+                        <option value="semestre1">Semestre 1</option>
+                        <option value="semestre2">Semestre 2</option>
+                    </select><br>
+
+                    <label for="fecha_ingreso">Fecha de Ingreso:</label>
+                    <input type="text" id="fecha_ingreso" name="fecha_ingreso" placeholder="dd / mm / aaaa"><br>
+
+                    <label for="curricula">Curricula:</label>
+                    <select id="curricula" name="curricula">
+                        <option value="curricula1">Curricula 1</option>
+                        <option value="curricula2">Curricula 2</option>
+                    </select><br>
+                </div>
+
+                <!-- Campos adicionales para el tipo de usuario Opción 2 -->
+                <div id="opcion2_campos" style="display: none;">
+                    <label for="fecha_graduacion">Fecha de Graduación:</label>
+                    <input type="text" id="fecha_graduacion" name="fecha_graduacion" placeholder="dd / mm / aaaa"><br>
+
+                    <label for="lugar_trabajo">Lugar de Trabajo:</label>
+                    <input type="text" id="lugar_trabajo" name="lugar_trabajo"><br>
+                </div>
+
+                <!-- Campos adicionales para el tipo de usuario Opción 3 -->
+                <div id="opcion3_campos" style="display: none;">
+                    <label for="especialidad">Especialidad:</label>
+                    <select id="especialidad" name="especialidad">
+                        <option value="especialidad1">Especialidad 1</option>
+                        <option value="especialidad2">Especialidad 2</option>
+                    </select><br>
+
+                    <label for="fecha_ingreso_universidad">Fecha de Ingreso:</label>
+                    <input type="text" id="fecha_ingreso_universidad" name="fecha_ingreso_universidad" placeholder="dd / mm / aaaa"><br>
+
+                    <label for="universidad_procedencia">Universidad de Procedencia:</label>
+                    <select id="universidad_procedencia" name="universidad_procedencia">
+                        <option value="universidad1">Universidad 1</option>
+                        <option value="universidad2">Universidad 2</option>
+                    </select><br>
+                </div>
+
+                <!-- Campos adicionales para el tipo de usuario Opción 4 -->
+                <div id="opcion4_campos" style="display: none;">
+                    <label for="nombre_empresa">Nombre - Empresa:</label>
+                    <input type="text" id="nombre_empresa" name="nombre_empresa"><br>
+
+                    <label for="direccion_empresa">Dirección - Empresa:</label>
+                    <input type="text" id="direccion_empresa" name="direccion_empresa"><br>
+
+                    <label for="ruc">RUC:</label>
+                    <input type="text" id="ruc" name="ruc"><br>
+                </div>
+
+                <input type="submit" value="Registrarse">
+            </form>
+        </div>
+    </div>
+    <script>
+        function mostrarCamposAdicionales() {
+            const tipoUsuario = document.getElementById("tipo_usuario").value;
+
+            // Ocultar todos los campos adicionales
+            document.getElementById("opcion1_campos").style.display = "none";
+            document.getElementById("opcion2_campos").style.display = "none";
+            document.getElementById("opcion3_campos").style.display = "none";
+            document.getElementById("opcion4_campos").style.display = "none";
+
+            // Mostrar los campos adicionales correspondientes al tipo de usuario seleccionado
+            if (tipoUsuario === "opcion1") {
+                document.getElementById("opcion1_campos").style.display = "block";
+            } else if (tipoUsuario === "opcion2") {
+                document.getElementById("opcion2_campos").style.display = "block";
+            } else if (tipoUsuario === "opcion3") {
+                document.getElementById("opcion3_campos").style.display = "block";
+            } else if (tipoUsuario === "opcion4") {
+                document.getElementById("opcion4_campos").style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
